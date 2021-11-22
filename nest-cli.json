@@ -1,0 +1,66 @@
+{
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "apps/graphql-server/src",
+  "monorepo": true,
+  "root": "apps/graphql-server",
+  "compilerOptions": {
+    "webpack": true,
+    "tsConfigPath": "apps/graphql-server/tsconfig.app.json"
+  },
+  "projects": {
+    "graphql-server": {
+      "type": "application",
+      "root": "apps/graphql-server",
+      "entryFile": "main",
+      "sourceRoot": "apps/graphql-server/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/graphql-server/tsconfig.app.json"
+      }
+    },
+    "api-gateway": {
+      "type": "application",
+      "root": "apps/api-gateway",
+      "entryFile": "main",
+      "sourceRoot": "apps/api-gateway/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/api-gateway/tsconfig.app.json"
+      }
+    },
+    "microservices/auth": {
+      "type": "application",
+      "root": "apps/microservices/auth",
+      "entryFile": "main",
+      "sourceRoot": "apps/microservices/auth/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/microservices/auth/tsconfig.app.json"
+      }
+    },
+    "microservices/user": {
+      "type": "application",
+      "root": "apps/microservices/user",
+      "entryFile": "main",
+      "sourceRoot": "apps/microservices/user/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/microservices/user/tsconfig.app.json"
+      }
+    },
+    "microservices/company": {
+      "type": "application",
+      "root": "apps/microservices/company",
+      "entryFile": "main",
+      "sourceRoot": "apps/microservices/company/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/microservices/company/tsconfig.app.json"
+      }
+    },
+    "microservices/vacancy": {
+      "type": "application",
+      "root": "apps/microservices/vacancy",
+      "entryFile": "main",
+      "sourceRoot": "apps/microservices/vacancy/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/microservices/vacancy/tsconfig.app.json"
+      }
+    }
+  }
+}
