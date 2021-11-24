@@ -8,7 +8,7 @@
     "tsConfigPath": "apps/graphql-server/tsconfig.app.json"
   },
   "projects": {
-    "graphql-server": {
+    "gql": {
       "type": "application",
       "root": "apps/graphql-server",
       "entryFile": "main",
@@ -17,7 +17,7 @@
         "tsConfigPath": "apps/graphql-server/tsconfig.app.json"
       }
     },
-    "api-gateway": {
+    "api": {
       "type": "application",
       "root": "apps/api-gateway",
       "entryFile": "main",
@@ -26,40 +26,40 @@
         "tsConfigPath": "apps/api-gateway/tsconfig.app.json"
       }
     },
-    "microservices/auth": {
+    "auth": {
       "type": "application",
-      "root": "apps/microservices/auth",
+      "root": "apps/microservices/auth-service",
       "entryFile": "main",
-      "sourceRoot": "apps/microservices/auth/src",
+      "sourceRoot": "apps/microservices/auth-service/src",
       "compilerOptions": {
-        "tsConfigPath": "apps/microservices/auth/tsconfig.app.json"
+        "tsConfigPath": "apps/microservices/auth-service/tsconfig.app.json"
       }
     },
-    "microservices/user": {
+    "user": {
       "type": "application",
-      "root": "apps/microservices/user",
+      "root": "apps/microservices/user-service",
       "entryFile": "main",
-      "sourceRoot": "apps/microservices/user/src",
+      "sourceRoot": "apps/microservices/user-service/src",
       "compilerOptions": {
-        "tsConfigPath": "apps/microservices/user/tsconfig.app.json"
+        "tsConfigPath": "apps/microservices/user-service/tsconfig.app.json"
       }
     },
-    "microservices/company": {
+    "company": {
       "type": "application",
-      "root": "apps/microservices/company",
+      "root": "apps/microservices/company-service",
       "entryFile": "main",
-      "sourceRoot": "apps/microservices/company/src",
+      "sourceRoot": "apps/microservices/company-service/src",
       "compilerOptions": {
-        "tsConfigPath": "apps/microservices/company/tsconfig.app.json"
+        "tsConfigPath": "apps/microservices/company-service/tsconfig.app.json"
       }
     },
-    "microservices/vacancy": {
+    "vacancy": {
       "type": "application",
-      "root": "apps/microservices/vacancy",
+      "root": "apps/microservices/vacancy-service",
       "entryFile": "main",
-      "sourceRoot": "apps/microservices/vacancy/src",
+      "sourceRoot": "apps/microservices/vacancy-service/src",
       "compilerOptions": {
-        "tsConfigPath": "apps/microservices/vacancy/tsconfig.app.json"
+        "tsConfigPath": "apps/microservices/vacancy-service/tsconfig.app.json"
       }
     }
   }
