@@ -6,9 +6,6 @@ export class VacancyUpdateDto {
     _id: string;
 
     @IsString()
-    companyId: string;
-
-    @IsString()
     title: string;
 
     @IsString()

@@ -1,5 +1,5 @@
 import { Model, ObjectId } from 'mongoose';
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotAcceptableException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Vacancy, VacancyDocument } from './schemas/vacancy.schema';
 import { VacancyDto } from './dtos/vacancy.dto';
@@ -12,7 +12,11 @@ export class VacancyService {
 
   async create(vacancy: Vacancy): Promise<any> {
     const createdVacancy = new this.vacancyModel(vacancy);
-    return createdVacancy.save();
+    try {
+      return createdVacancy.save()
+    } catch (error) {
+      throw new NotAcceptableException(`Failed`);
+    }
   }
 
   async findById(_id: ObjectId): Promise<Vacancy> {
@@ -24,14 +28,30 @@ export class VacancyService {
   }
 
   async deleteById(_id: ObjectId): Promise<any> {
-    return this.vacancyModel.deleteOne({ _id }).exec();
+    if (this.vacancyModel.deleteOne({ _id }).exec()) {
+      return {
+        "statusCode": 200,
+        "message": "Succeed",
+      }
+    } else {
+      throw new NotAcceptableException(`Failed`);
+    }
   }
 
   async update(vacancyDto: VacancyDto): Promise<any> {
     const { _id, ...vacancy } = vacancyDto;
-    return this.vacancyModel.updateOne(
+    const result = this.vacancyModel.updateOne(
       { _id},
       { $set: vacancy }
     ).exec();
+    
+    if (result) {
+      return {
+        "statusCode": 200,
+        "message": "Succeed",
+      }
+    } else {
+      throw new NotAcceptableException(`Failed`);
+    }
   }
 }

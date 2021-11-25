@@ -8,6 +8,20 @@ import controllers from './controllers';
   controllers: [...controllers],
   providers: [
     {
+      provide: 'AUTH_SERVICE',
+      useFactory: (configService: ConfigService) => {
+        return ClientProxyFactory.create({
+          transport: Transport.TCP,
+          options: {
+            host: configService.get('AUTH_SERVICE_HOST'),
+            port: configService.get('AUTH_SERVICE_PORT'),
+          },
+        });
+      },
+      inject: [ConfigService],
+    },
+
+    {
       provide: 'USER_SERVICE',
       useFactory: (configService: ConfigService) => {
         return ClientProxyFactory.create({

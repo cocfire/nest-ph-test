@@ -1,3 +1,5 @@
-import { TestResolver } from "./test.resolver";
+import { AuthResolver } from "./auth.resolver";
+import { CompanyResolver } from "./company.resolve";
+import { VacancyResolver } from "./vacancy.resolver";
 
-export default [TestResolver];
+export default [AuthResolver, VacancyResolver, CompanyResolver];
