@@ -2,7 +2,7 @@
   "collection": "@nestjs/schematics",
   "sourceRoot": "apps/graphql-server/src",
   "monorepo": true,
-  "root": "apps/graphql-server",
+  "root": "gql",
   "compilerOptions": {
     "webpack": true,
     "tsConfigPath": "apps/graphql-server/tsconfig.app.json"
@@ -10,7 +10,7 @@
   "projects": {
     "gql": {
       "type": "application",
-      "root": "apps/graphql-server",
+      "root": "gql",
       "entryFile": "main",
       "sourceRoot": "apps/graphql-server/src",
       "compilerOptions": {
@@ -19,7 +19,7 @@
     },
     "api": {
       "type": "application",
-      "root": "apps/api-gateway",
+      "root": "api",
       "entryFile": "main",
       "sourceRoot": "apps/api-gateway/src",
       "compilerOptions": {
@@ -28,7 +28,7 @@
     },
     "auth": {
       "type": "application",
-      "root": "apps/microservices/auth-service",
+      "root": "micros/auth",
       "entryFile": "main",
       "sourceRoot": "apps/microservices/auth-service/src",
       "compilerOptions": {
@@ -37,7 +37,7 @@
     },
     "user": {
       "type": "application",
-      "root": "apps/microservices/user-service",
+      "root": "micros/user",
       "entryFile": "main",
       "sourceRoot": "apps/microservices/user-service/src",
       "compilerOptions": {
@@ -46,7 +46,7 @@
     },
     "company": {
       "type": "application",
-      "root": "apps/microservices/company-service",
+      "root": "micros/company",
       "entryFile": "main",
       "sourceRoot": "apps/microservices/company-service/src",
       "compilerOptions": {
@@ -55,7 +55,7 @@
     },
     "vacancy": {
       "type": "application",
-      "root": "apps/microservices/vacancy-service",
+      "root": "micros/vacancy",
       "entryFile": "main",
       "sourceRoot": "apps/microservices/vacancy-service/src",
       "compilerOptions": {
