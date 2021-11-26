@@ -1,13 +1,15 @@
 import { Injectable } from '@nestjs/common';
 import axios from 'axios';
+import { Vacancy } from '../dtos/vacancy.dto';
 import { VacancyCreateInput } from '../inputs/vacancy-create.input';
 import { VacancyUpdateInput } from '../inputs/vacancy-update.input';
+import { Result } from '../outpus/response-result.output';
 
 @Injectable()
 export class VacancyService {
-    async findAllVacanciesByCompanyId(companyId: string, authorization: string) {
+    async findAllVacanciesByCompanyId(companyId: string, authorization: string): Promise<[Vacancy]> {
         const vacancies = await axios
-            .get(
+            .get<[Vacancy]>(
                 `http://${process.env.API_GATEWAY_HOST}:${process.env.API_GATEWAY_PORT}/vacancies?companyId=${companyId}`,
                 {
                     headers: {
@@ -22,9 +24,9 @@ export class VacancyService {
         return vacancies;
     }
 
-    async findVacancyByVacancyId(vacancyId: string, authorization: string) {
+    async findVacancyByVacancyId(vacancyId: string, authorization: string): Promise<Vacancy> {
         const vacancy = await axios
-            .get(
+            .get<Vacancy>(
                 `http://${process.env.API_GATEWAY_HOST}:${process.env.API_GATEWAY_PORT}/vacancy?vacancyId=${vacancyId}`,
                 {
                     headers: {
@@ -40,9 +42,9 @@ export class VacancyService {
         return vacancy;
     }
 
-    async createVacancy(vacancy: VacancyCreateInput, authorization: string) {
+    async createVacancy(vacancy: VacancyCreateInput, authorization: string): Promise<Vacancy> {
         const result = await axios
-            .post(
+            .post<Vacancy>(
                 `http://${process.env.API_GATEWAY_HOST}:${process.env.API_GATEWAY_PORT}/vacancy`,
                 vacancy,
                 {
@@ -62,9 +64,9 @@ export class VacancyService {
     async updateVacancyById(
         vacancy: VacancyUpdateInput,
         authorization: string,
-    ) {
+    ): Promise<Result> {
         const result = await axios
-            .put(
+            .put<Result>(
                 `http://${process.env.API_GATEWAY_HOST}:${process.env.API_GATEWAY_PORT}/vacancy`,
                 vacancy,
                 {
@@ -84,9 +86,9 @@ export class VacancyService {
     async deleteVacancyById(
         vacancyId: string,
         authorization: string,
-    ) {
+    ): Promise<Result> {
         const result = await axios
-            .delete(
+            .delete<Result>(
                 `http://${process.env.API_GATEWAY_HOST}:${process.env.API_GATEWAY_PORT}/vacancy?vacancyId=${vacancyId}`,
                 {
                     headers: {

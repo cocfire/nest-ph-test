@@ -11,7 +11,7 @@ export class CompanyResolver {
         @Args('companyId', { type: () => String }) companyId: string,
         @Context('authorization') authorization: string,
     ) {
-        console.log(`Graphql-server.VacancyResolver.viewCompanyById: companyId ${companyId}`);
+        console.log(`Graphql-server.CompanyResolver.viewCompanyById: companyId ${companyId}`);
         return this.companyService.findCompanyById(companyId, authorization);
     }
 

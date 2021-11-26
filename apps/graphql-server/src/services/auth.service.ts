@@ -4,7 +4,7 @@ import { LoginToken } from '../outpus/login-token.output';
 
 @Injectable()
 export class AuthService {
-  async login(username: string, password: string) {
+  async login(username: string, password: string): Promise<LoginToken> {
     const result = await axios
       .post<LoginToken>(
         `http://${process.env.API_GATEWAY_HOST}:${process.env.API_GATEWAY_PORT}/login`,
